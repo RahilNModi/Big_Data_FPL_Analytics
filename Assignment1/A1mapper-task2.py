@@ -7,7 +7,7 @@ import json
 
 target =sys.argv[len(sys.argv)-2]		#target_word read as an input argument
 
-distance = int(sys.argv[len(sys.argv)-1])	#threshold distance factor 
+threshold_distance = int(sys.argv[len(sys.argv)-1])	#threshold distance factor 
 
 for recs in sys.stdin :	#read from input stream
 	
@@ -15,6 +15,7 @@ for recs in sys.stdin :	#read from input stream
 	pure_dict = json.loads(recs)	#convert string dictionary into a python dict()
 	
 	curr_word = pure_dict['word']	#get the word attr
+	
 	if curr_word == target:	#perform comparison
 		
 		#print(pure_dict['countrycode'],'  ',1)
@@ -27,7 +28,7 @@ for recs in sys.stdin :	#read from input stream
 		#print("Stroke_one_y:",stroke_one_y)
 		#print(stroke_one_x,stroke_one_y,sep="  ,   ")
 		
-		if (stroke_one_x**2 + stroke_one_y**2 )**0.5 > distance :	#condition check , euclidean criteria
+		if (stroke_one_x**2 + stroke_one_y**2 )**0.5 > threshold_distance :	#condition check , euclidean criteria
 		
 			print(pure_dict['countrycode'],',',1,sep="")		#print
 	
