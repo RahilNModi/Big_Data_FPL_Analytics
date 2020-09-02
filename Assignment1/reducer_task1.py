@@ -16,5 +16,10 @@ for record in sys.stdin:
 			first_label = label
 	else:
 		d[label] += value
-print('%s' % (d[first_label]))
-print('%s' % (d["Weekend"]))
+if d == {}:
+	pass
+else:
+	if d[first_label]:
+		print('%s' % (d[first_label]))
+	if d["Weekend"]:
+		print('%s' % (d["Weekend"]))

@@ -5,8 +5,8 @@ import json
 import datetime
 
 target = sys.argv[1]
-print ('%s\t%s' % (target, "0"))
-print ('%s\t%s' % ("Weekend", "0"))
+print('%s\t%s' % (row[target], "0"))
+print('%s\t%s' % ("Weekend", "0"))
 for item in sys.stdin:
 	row = json.loads(item)
 	if row["word"]==target and all(x.isalpha() or x.isspace() for x in row["word"]) and type(row["recognized"])==bool and 		all(len(y)==2 for y in row["drawing"]):
