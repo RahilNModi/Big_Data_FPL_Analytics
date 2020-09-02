@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+import sys
+
+d = {}
+for record in sys.stdin:
+	record = record.strip()
+	label, value = record.split("\t",1)
+	try:
+		value = int(value)
+	except:
+		continue
+	if label not in d:
+		d[label] = value
+		if label != "Weekend":
+			first_label = label
+	else:
+		d[label] += value
+print('%s' % (d[first_label]))
+print('%s' % (d["Weekend"]))
