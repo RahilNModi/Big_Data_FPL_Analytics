@@ -35,14 +35,3 @@ for recs in sys.stdin :	#read from input stream
 					print(pure_dict['countrycode'],',',1,sep="")		#print
 	
 	
-
-	
-	'''count-=1
-	if count ==0:
-		break'''
-		
-		
-#execute using the command below
-#cat plane_carriers.ndjson |python3 mapper.py 'whatever word you want' 100
-
-
