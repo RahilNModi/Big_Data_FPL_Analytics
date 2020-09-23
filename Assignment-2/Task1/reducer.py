@@ -1,10 +1,14 @@
+#!/usr/bin/python3
+
 import sys
+
+path = sys.argv[1]
 
 current_src_node = None   #Initially no source , dest edge has arrived
 
 dest_list = []			  #contains all the nodes adj to current_src_node
 
-file_handler = open('V.txt','w')
+file_handler = open(path,'w')
 
 for edges in sys.stdin:	  #streaming input		
 
