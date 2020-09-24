@@ -37,13 +37,17 @@ for edges in sys.stdin:	  #streaming input
 
 		if current_src_node:			#verifying that I have a valid current_src_node and not a None value
 
-			dest_list.sort()			#lexically sort the adj nodes
+			dest_list = list(map(lambda x: str(x), dest_list))
+			
+			dest_list.sort() #lexically sort the adj nodes
+			
+			dest_list = list(map(lambda x: int(x), dest_list))			
 
 			print(current_src_node,"\t",dest_list)	#stream out , end of observation for a src_node
 
 			#create an entry in V vector-file
 
-			file_handler.write(current_src_node+'\t'+'1'+'\n')
+			file_handler.write(current_src_node+','+'1'+'\n')
 
 
 
@@ -54,9 +58,15 @@ for edges in sys.stdin:	  #streaming input
 
 if current_src_node == src_node:
 
+	dest_list = list(map(lambda x: str(x), dest_list))
+
+	dest_list.sort()
+	
+	dest_list = list(map(lambda x: int(x), dest_list))
+
 	print(current_src_node,"\t",dest_list)
 
-	file_handler.write(current_src_node+'\t'+'1'+'\n')
+	file_handler.write(current_src_node+','+'1'+'\n')
 
 
 file_handler.close()
