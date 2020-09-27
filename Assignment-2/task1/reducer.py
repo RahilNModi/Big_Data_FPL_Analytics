@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import sys
 
 path = sys.argv[1]
@@ -17,15 +15,7 @@ for edges in sys.stdin:	  #streaming input
 	src_node,dest_node = edges.split('\t',1)	#split edges[0] as src_node and edges[1] as dest_node
 
 
-	try :
-
-		dest_node = int(dest_node)				#convert dest_node to int , because we need to sort the dest_nodes lexically
-
-
-
-	except ValueError:
-
-		continue
+	
 
 
 	if current_src_node == src_node:	#if the input src_node is same as the current_src_node under observation
@@ -37,11 +27,11 @@ for edges in sys.stdin:	  #streaming input
 
 		if current_src_node:			#verifying that I have a valid current_src_node and not a None value
 
-			dest_list = list(map(lambda x: str(x), dest_list))
+			#dest_list = list(map(lambda x: str(x), dest_list))
 			
 			dest_list.sort() #lexically sort the adj nodes
 			
-			dest_list = list(map(lambda x: int(x), dest_list))			
+			#dest_list = list(map(lambda x: int(x), dest_list))			
 
 			print(current_src_node,"\t",dest_list)	#stream out , end of observation for a src_node
 
@@ -58,11 +48,11 @@ for edges in sys.stdin:	  #streaming input
 
 if current_src_node == src_node:
 
-	dest_list = list(map(lambda x: str(x), dest_list))
+	#dest_list = list(map(lambda x: str(x), dest_list))
 
 	dest_list.sort()
 	
-	dest_list = list(map(lambda x: int(x), dest_list))
+	#dest_list = list(map(lambda x: int(x), dest_list))
 
 	print(current_src_node,"\t",dest_list)
 
@@ -70,3 +60,4 @@ if current_src_node == src_node:
 
 
 file_handler.close()
+
