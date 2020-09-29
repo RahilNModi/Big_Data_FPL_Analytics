@@ -17,16 +17,6 @@ for edges in sys.stdin:	  #streaming input
 	src_node,dest_node = edges.split('\t',1)	#split edges[0] as src_node and edges[1] as dest_node
 
 
-	try :
-
-		dest_node = int(dest_node)				#convert dest_node to int , because we need to sort the dest_nodes lexically
-
-
-
-	except ValueError:
-
-		continue
-
 
 	if current_src_node == src_node:	#if the input src_node is same as the current_src_node under observation
 
@@ -43,7 +33,7 @@ for edges in sys.stdin:	  #streaming input
 
 			#create an entry in V vector-file
 
-			file_handler.write(current_src_node+'\t'+'1'+'\n')
+			file_handler.write(current_src_node+','+'1'+'\n')
 
 
 
@@ -53,18 +43,11 @@ for edges in sys.stdin:	  #streaming input
 
 
 if current_src_node == src_node:
+	dest_list.sort()
 
 	print(current_src_node,"\t",dest_list)
 
-	file_handler.write(current_src_node+'\t'+'1'+'\n')
+	file_handler.write(current_src_node+','+'1'+'\n')
 
 
 file_handler.close()
-
-
-
-
-
-
-
-
