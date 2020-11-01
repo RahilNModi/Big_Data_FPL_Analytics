@@ -16,15 +16,15 @@ df.dropDuplicates()		#drop duplicates
 target_only = df.filter((col('word')==target))		#select rows with word.value == target_value
 
 if target_only.rdd.isEmpty():
-	print('0.00000')
-	print('0.00000')
+	print('0.0')
+	print('0.0')
 	quit()
 							
 total_true_false = target_only.groupBy('recognized').count().collect() #groupy by recognised and then find #of true and false entries
 
 #[Row(recognized=u'False', count=17), Row(recognized=u'True', count=182)] : Sample
 
-counts={} #A dictionary with 2 keys only viz True and False , their values are a list which represents the total count of true,strokes_in_true
+counts={'True':[],'False':[]} #A dictionary with 2 keys only viz True and False , their values are a list which represents the total count of true,strokes_in_true
 
 """		|--- True ---->[N(recognised=True) , Stroke sum for recognised=True]
 	counts --
@@ -36,8 +36,8 @@ counts={} #A dictionary with 2 keys only viz True and False , their values are a
 
 for rows in total_true_false:
 
-	if rows['recognized'] not in counts:
-		counts[rows['recognized']]  = [rows['count']]
+	
+	counts[rows['recognized']].append(rows['count']) 
 
 
 
@@ -57,20 +57,25 @@ for rows in res:
 
 #by default True is first in the dictionary
 
-for values in counts:
+
 	
-	try :
-		k = float(counts[values][1])/float(counts[values][0])
+try :
+		k = float(counts['True'][1])/float(counts['True'][0])
 		
 		print(format(k,"0.5f"))
 
-	except ZeroDivisionError:
+except ZeroDivisionError,IndexError:
 		print('0.00000')
 
 
 
+try :
+		k = float(counts['False'][1])/float(counts['False'][0])
+		
+		print(format(k,"0.5f"))
 
-
+except ZeroDivisionError,IndexError:
+		print('0.00000')
 
 
 
