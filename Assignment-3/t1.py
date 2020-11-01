@@ -15,6 +15,10 @@ df = df.withColumn("Total_Strokes", df["Total_Strokes"].cast(IntegerType())) #ca
 df.dropDuplicates()		#drop duplicates
 target_only = df.filter((col('word')==target))		#select rows with word.value == target_value
 
+if target_only.rdd.isEmpty():
+	print('0.00000')
+	print('0.00000')
+	quit()
 							
 total_true_false = target_only.groupBy('recognized').count().collect() #groupy by recognised and then find #of true and false entries
 
@@ -35,7 +39,7 @@ for rows in total_true_false:
 	if rows['recognized'] not in counts:
 		counts[rows['recognized']]  = [rows['count']]
 
-	
+
 
 
 
@@ -56,12 +60,12 @@ for rows in res:
 for values in counts:
 	
 	try :
-		k = counts[values][1]/counts[values][0]
-		print(format(k,'0.5f'))
+		k = float(counts[values][1])/float(counts[values][0])
+		
+		print(format(k,"0.5f"))
 
 	except ZeroDivisionError:
 		print('0.00000')
-
 
 
 
