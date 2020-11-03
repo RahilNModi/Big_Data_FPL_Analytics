@@ -22,8 +22,7 @@ target_only_df1 = df1.filter((col('word') == target_word)).drop("word")
 
 # To be decided
 if target_only_df1.rdd.isEmpty():
-	print('0.00000')
-	print('0.00000')
+	print('0')
 	quit()
 	
 	
@@ -44,11 +43,11 @@ df = df.filter((col('Total_Strokes') < int(target_count)))
 
 
 final_dict = {}
-result = df.groupBy('countrycode').sum('Total_Strokes').collect()
+result = df.groupBy('countrycode').count().collect()
 
 for row in result:
 	if row["countrycode"] not in final_dict:
-		final_dict[row["countrycode"]] = row["sum(Total_Strokes)"]
+		final_dict[row["countrycode"]] = row["count"]
 		
 		
 for key in sorted(final_dict.keys()):
