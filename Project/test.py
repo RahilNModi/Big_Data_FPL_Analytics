@@ -7,11 +7,6 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql import Row,SQLContext
 #import pyspark_csv as pycsv 
 import sys
-k=1
-def foo(a,b):
-
-	return sum(a) + (b or 0)
-
 
 configuration = SparkConf()
 configuration.setAppName('Project')
@@ -42,23 +37,15 @@ players_df.show(10)
 teams_df.show(10)
 
 ##3#######################################################
+  
+	
+	     
+		 #WORK HERE#
 
-#few dummy checks
-recs = input_stream.map(lambda x : (x,1))
+			
+			
 
-ops =  recs.reduceByKey(lambda x ,y:x+y )
-
-
-#tc = recs.updateStateByKey(foo)
-
-recs.flatMap(lambda line: line.split(" ")).pprint()
-#tc.pprint()
-
-print(k)
-k+=1
-
-
-##########################################################
+#######################################################
 
 streaming_context.start()
 
