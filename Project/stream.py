@@ -25,7 +25,7 @@ def send_data_to_spark(tcp_connection, eve, mat):
             fl = 1
             for j in mat:
                 if j['wyId'] == m:
-                    tcp_connection.send(json.dumps(j).encode())
+                    tcp_connection.send((json.dumps(j)+'\n').encode())
                     
                     break
 
