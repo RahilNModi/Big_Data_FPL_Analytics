@@ -21,7 +21,7 @@ teams_df = sql.read.format('csv').option("header", "true").load("/home/sneha/had
 play = players_df.groupBy("Id").count().collect()
 #print(new) Row(Id='346135', count=1)
 players = dict()
-final = {'passAcc':{'accNor':0 , 'accKey':0}, 'dualEffect':{'won':0 , 'neutral':0 , 'total':0}, 'freeKicks':{'goal':0 , 'penalty':0 , 'total':0}, 'targetShots':{'tarGoal':0 , 'tarNotGoal':0 , 'total':0}, 'foulLoss':{'foul':0}, 'dualEffect':{'goal':0},'contribution':0 , 'rating' :0.5 ,'minutesPlayed' :0}
+final = {'passAcc':{'accNor':0 , 'accKey':0}, 'dualEffect':{'won':0 , 'neutral':0 , 'total':0}, 'freeKicks':{'goal':0 , 'penalty':0 , 'total':0}, 'targetShots':{'tarGoal':0 , 'tarNotGoal':0 , 'total':0}, 'foulLoss':{'foul':0}, 'ownGoal':{'goal':0},'contribution':0 , 'rating' :0.5 ,'minutesPlayed' :0}
 #chemistry = dict()
 #count =0
 for row in play:
