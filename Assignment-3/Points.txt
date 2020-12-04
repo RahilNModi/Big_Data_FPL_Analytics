@@ -1,3 +1,0 @@
-# Shape.csv would be dataset1 and shape_stat.csv would be dataset2.
-#You have to print the output onto stdout.
-#Please round your answer to the nearest 5 digits.<Task-1>
