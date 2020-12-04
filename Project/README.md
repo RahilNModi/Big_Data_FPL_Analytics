@@ -68,6 +68,6 @@
 
 
 #### Step 5 : Run ui.py to test
-> python ui.py <INPUT JSON FILE>
+> python ui.py \<INPUT JSON FILE\>
 
 
