@@ -17,4 +17,18 @@
 +
 ```
 
+### *File/Folder Descriptions*
+
+#### master.py
+
+> 1. Accepts streaming data from port 6100 and performs metric calculations and player-profile updations using Pyspark library during training phase<br>
+
+#### ui.py
+> 1. Testing of data is done by passing the input json queries along with this file as command line args. Writes output for a query onto output.json file.
+
+#### clustering.py
+> 1. Performs clustering on subset of Data using Pyspark MLLib.
+
+#### stream.py
+> 1 . Streams input data in json format onto port 6100 . Compatible with version 3.6 of Python.
 
