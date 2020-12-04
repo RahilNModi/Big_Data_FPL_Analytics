@@ -1,6 +1,6 @@
 # Big Data Final Project - 2020 - FPL Analytics
 
-# Repository Structure 
+### Project Structure 
 ```
 +
 |----Project
@@ -14,6 +14,7 @@
 |               |--- final_player_profile.json
 |               |--- players.csv
 |               |--- teams.csv
+|        |--- requirements.txt
 +
 ```
 
@@ -40,5 +41,33 @@
 > 5.teams.csv : Input data regarding teams participating in tournament. <br>
 
 
+
+### *Procedure to run the file*
+
+#### Step 0 : Installations
+> Install Hadoop : version 3.2.1 <br>
+> Install Spark : version 3.0.1 <br>
+> Install libraries : pip install -r requirements.txt 
+
+#### Step 1 : Start HDFS
+> bin/hdfs namenode -format <br>
+> sbin/start-dfs.sh
+
+
+#### Step 2 : Start Streaming the data (Terminal 1)
+> python3 stream.py
+
+
+#### Step 3 : Run master.py to train (Terminal 2)
+> spark-submit master.py > out.txt
+
+
+#### Step 4 : Store the results on HDFS
+> hdfs dfs -mkdir /data <br>
+> hdfs dfs -put '/home/himanshu/BigData/Assignment/final_match_data.txt' /data
+
+
+#### Step 5 : Run ui.py to test
+> python ui.py <INPUT JSON FILE>
 
 
