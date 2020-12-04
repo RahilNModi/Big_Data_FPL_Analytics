@@ -32,3 +32,13 @@
 #### stream.py
 > 1 . Streams input data in json format onto port 6100 . Compatible with version 3.6 of Python.
 
+#### Data
+> 1.final_chemistry.txt : the chemistry metric between players ,obtained till the last successful iteration <br>
+> 2.final_match_data.txt : match detail records obtained at the end of every match <br>
+> 3.final_player_profile.json : Final Player profile obtained post training phase <br>
+> 4.players.csv : Input data regarding players involved/participating in the tournament. <br>
+> 5.teams.csv : Input data regarding teams participating in tournament. <br>
+
+
+
+
